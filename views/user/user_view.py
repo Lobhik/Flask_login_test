@@ -22,7 +22,7 @@ def UserDetailsController(table_name, post_data):
   if 'assembly_no' in post_data and 'name_en' in post_data and 'village_no' in post_data:
     where_clause = "ac_no = '{}' and part_no = '{}' AND name_en LIKE '{}%' ".format(post_data['assembly_no'],post_data['village_no'],post_data['name_en'])
 
-  select_columns = ["sr_no","name","ac_no","part_no","age","family","gender","name_en",
+  select_columns = ["id","sr_no","name","ac_no","part_no","age","family","gender","name_en",
     "(SELECT village FROM all_district_list WHERE assembly_no = user_details.ac_no AND village_no = user_details.part_no) AS village_name",
     "(SELECT district FROM all_district_list WHERE assembly_no = user_details.ac_no AND village_no = user_details.part_no) AS district "
     ]

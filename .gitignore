@@ -1,6 +1,5 @@
-/.env
+env
 /ALL_DIST.xlsx
 /Chandrapur.xlsx
-/myenv
 /test_user_data.db
 /__pycache__

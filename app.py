@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-#from flask_cors import CORS
+from flask_cors import CORS
 from urls.user.user import user_bp
 from urls.test_urls.test_urls import test_bp
 
@@ -8,7 +8,14 @@ from urls.test_urls.test_urls import test_bp
 app = Flask(__name__)
 
 
-#CORS(app)
+CORS(app)
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'PUT, PATCH, POST, GET, DELETE')
+    response.headers.add('Access-Control-Allow-Headers','access-control-allow-headers,content-type,Access-Control-Allow-Origin,access-control-max-age,username,password, content-type,auth_token,crossorigin')
+    return response
 
 '''
   API Default Route
