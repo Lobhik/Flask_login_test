@@ -1,0 +1,2 @@
+for testing  => flask run --host 0.0.0.0 --debug
+python version => 3.11.6
